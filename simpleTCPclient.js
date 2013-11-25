@@ -21,20 +21,12 @@
 
 	Documentation:
 		
-		https://
-	
-	tcpMsg={
-		address=<string>,
-		port=<number>,
-		command=<string>,
-		data=<base64-encoded string>
-	}
+		https://github.com/x684867/simpleTCPclient/wiki
  */
 
 module.exports=function(){
 	net=require('net');
-	
-function tcp_client(){
+
 	var currConnections=Array();
 	/* 
 		createConnection establishes a persistent TCP connection with an identified host.
@@ -69,17 +61,14 @@ function tcp_client(){
 		/*return the new connection object (modified socket)*/
 		return skt;
 	}
+	/**/
 	this.getConnection=function(id){return currConnections[id];}
+	/**/
 	this.dropConnection=function(id){
 		currConnections[id].destroy();
 		currConnections[id].close();
 		currConnections.delete[id];
 	}
-
-	base64encode=function(s){
-	
-	}
-	base64decode=function(s){
-	
-	}
 }
+base64encode=function(s){return (new Buffer(s).toString('base64');}
+base64decode=function(s){return (new Buffer(s,'base64').toString('utf8');}
